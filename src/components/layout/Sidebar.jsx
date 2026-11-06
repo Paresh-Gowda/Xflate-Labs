@@ -1,24 +1,34 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   LayoutDashboard,
   TrendingUp,
   ShoppingBasket,
-  Info,
   Activity,
-  ChevronLeft,
 } from "lucide-react";
 
 const navigation = [
-  { name: "Dashboard", path: "/", icon: LayoutDashboard },
-  { name: "Inflation Analysis", path: "/inflation", icon: TrendingUp },
-  { name: "Category Analysis", path: "/categories", icon: ShoppingBasket },
-  { name: "About Project", path: "/about", icon: Info },
+  {
+    name: "Dashboard",
+    path: "/",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "Inflation Analysis",
+    path: "/inflation",
+    icon: TrendingUp,
+  },
+  {
+    name: "Category Analysis",
+    path: "/categories",
+    icon: ShoppingBasket,
+  },
 ];
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <div className="brand">
+      {/* Clickable Brand */}
+      <Link to="/about" className="brand">
         <div className="brand-icon">
           <Activity size={22} />
         </div>
@@ -27,7 +37,7 @@ function Sidebar() {
           <h2>Xflate Labs</h2>
           <span>Economic Intelligence</span>
         </div>
-      </div>
+      </Link>
 
       <div className="nav-label">MENU</div>
 
@@ -56,6 +66,7 @@ function Sidebar() {
           <span className="status-dot" />
           <span>Analytics Workspace</span>
         </div>
+
         <small>Version 1.0.0</small>
       </div>
     </aside>
