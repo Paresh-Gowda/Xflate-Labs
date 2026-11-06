@@ -7,6 +7,8 @@ import Dashboard from "./pages/Dashboard";
 import Inflation from "./pages/Inflation";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
+import CategoryDetails from "./pages/CategoryDetails";
+import SubcategoryDetails from "./pages/SubcategoryDetails";
 
 function App() {
   return (
@@ -20,9 +22,25 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/inflation" element={<Inflation />} />
+
             <Route path="/categories" element={<Categories />} />
+
+            <Route
+              path="/categories/:categoryId"
+              element={<CategoryDetails />}
+            />
+
+            <Route
+              path="/categories/:categoryId/:subcategorySlug"
+              element={<SubcategoryDetails />}
+            />
+
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+
+            <Route
+              path="*"
+              element={<Navigate to="/" replace />}
+            />
           </Routes>
         </div>
       </main>

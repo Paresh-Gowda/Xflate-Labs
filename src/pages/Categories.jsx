@@ -1,8 +1,9 @@
-import { Search, ShoppingBasket } from "lucide-react";
+import { Search, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import SectionHeading from "../components/common/SectionHeading";
-import { categories } from "../data/mockData";
+import { categories } from "../data/categoryData";
 
 function Categories() {
   const [search, setSearch] = useState("");
@@ -23,21 +24,10 @@ function Categories() {
         </div>
       </div>
 
-      <div className="category-intro">
-        <ShoppingBasket size={27} />
-        <div>
-          <h2>Everyday Price Impact</h2>
-          <p>
-            Understand how changing prices affect different
-            goods and services.
-          </p>
-        </div>
-      </div>
-
       <section className="panel">
         <SectionHeading
           title="Explore Categories"
-          description="Browse the available economic categories."
+          description="Select a category to explore its subcategories and price information."
         />
 
         <div className="search-box category-search">
@@ -49,21 +39,29 @@ function Categories() {
           />
         </div>
 
-        <div className="category-table">
-          <div className="table-header">
-            <span>Category</span>
-            <span>Price Movement</span>
-            <span>Trend</span>
-          </div>
+        <div className="category-list">
+          {filteredCategories.map((category, index) => (
+            <Link
+              key={category.id}
+              to={`/categories/${category.id}`}
+              className="category-row category-clickable"
+            >
+              <div className="category-number">
+                {String(index + 1).padStart(2, "0")}
+              </div>
 
-          {filteredCategories.map((category) => (
-            <div className="table-row" key={category.name}>
-              <strong>{category.name}</strong>
-              <span>{category.value}</span>
-              <span className={`trend-badge ${category.status.toLowerCase()}`}>
-                {category.status}
-              </span>
-            </div>
+              <div className="category-info">
+                <strong>{category.name}</strong>
+                <span>
+                  {category.subcategories.length} subcategories
+                </span>
+              </div>
+
+              <div className="category-value">
+                <strong>{category.value}</strong>
+                <ArrowUpRight size={19} />
+              </div>
+            </Link>
           ))}
 
           {filteredCategories.length === 0 && (
