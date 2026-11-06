@@ -22,8 +22,7 @@ xflate-labs/
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   └── Footer.jsx
+│   │   │   └── Sidebar.jsx
 │   │   │
 │   │   ├── dashboard/
 │   │   │   ├── StatCard.jsx
@@ -31,30 +30,31 @@ xflate-labs/
 │   │   │   └── CategoryOverview.jsx
 │   │   │
 │   │   └── common/
-│   │       ├── SectionHeading.jsx
-│   │       └── Loading.jsx
+│   │       └── SectionHeading.jsx
 │   │
 │   ├── pages/
-│   │   ├── Home.jsx
 │   │   ├── Dashboard.jsx
 │   │   ├── Inflation.jsx
 │   │   ├── Categories.jsx
+│   │   ├── CategoryDetails.jsx
+│   │   ├── SubcategoryDetails.jsx
 │   │   └── About.jsx
 │   │
 │   ├── data/
 │   │   └── mockData.js
+│   │   └── categoryData.js
 │   │
-│   ├── services/
-│   │   └── api.js
+│   ├── styles/
+│   │    └── Inflation.css
 │   │
-│   ├── utils/
-│   │   └── formatters.js
-│   │
+│   ├── App.css
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
 │
 ├── index.html
 ├── package-lock.json
-└── package.json
+├── package.json
+├── vercel.json
+└── README.md
 ```
