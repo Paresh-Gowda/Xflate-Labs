@@ -1,9 +1,10 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   TrendingUp,
   ShoppingBasket,
   Activity,
+  X,
 } from "lucide-react";
 
 const navigation = [
@@ -24,20 +25,29 @@ const navigation = [
   },
 ];
 
-function Sidebar() {
+function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className="sidebar">
-      {/* Clickable Brand */}
-      <Link to="/about" className="brand">
-        <div className="brand-icon">
-          <Activity size={22} />
-        </div>
+    <aside className={`sidebar ${isOpen ? "sidebar-open" : ""}`}>
+      <div className="sidebar-header">
+        <Link to="/about" className="brand" onClick={onClose}>
+          <div className="brand-icon">
+            <Activity size={22} />
+          </div>
 
-        <div>
-          <h2>Xflate Labs</h2>
-          <span>Economic Intelligence</span>
-        </div>
-      </Link>
+          <div>
+            <h2>Xflate Labs</h2>
+            <span>Economic Intelligence</span>
+          </div>
+        </Link>
+
+        <button
+          className="sidebar-close"
+          onClick={onClose}
+          aria-label="Close navigation"
+        >
+          <X size={21} />
+        </button>
+      </div>
 
       <div className="nav-label">MENU</div>
 
@@ -50,6 +60,7 @@ function Sidebar() {
               key={item.path}
               to={item.path}
               end={item.path === "/"}
+              onClick={onClose}
               className={({ isActive }) =>
                 `nav-item ${isActive ? "active" : ""}`
               }

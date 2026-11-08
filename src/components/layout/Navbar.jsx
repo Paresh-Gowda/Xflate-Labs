@@ -1,32 +1,26 @@
-import { Bell, Search, Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 
-function Navbar() {
+function Navbar({ onMenuClick }) {
   return (
     <header className="navbar">
-      <div className="navbar-left">
-        <button className="mobile-menu">
-          <Menu size={21} />
-        </button>
+      <button
+        className="mobile-menu-button"
+        onClick={onMenuClick}
+        aria-label="Open navigation"
+      >
+        <Menu size={23} />
+      </button>
 
-        <div className="breadcrumb">
-          <span>Workspace</span>
-          <span>/</span>
-          <strong>Economic Overview</strong>
-        </div>
+      <div className="navbar-search">
+        <Search size={17} />
+        <span>Economic Analytics Workspace</span>
       </div>
 
       <div className="navbar-right">
-        <div className="search-box">
-          <Search size={17} />
-          <input placeholder="Search dashboard..." />
-          <kbd>⌘ K</kbd>
-        </div>
-
-        <button className="icon-button">
-          <Bell size={19} />
-        </button>
-
-        <div className="profile-avatar">XL</div>
+        <span className="navbar-indicator">
+          <span />
+          Xflate Labs
+        </span>
       </div>
     </header>
   );

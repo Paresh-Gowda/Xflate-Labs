@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Sidebar from "./components/layout/Sidebar";
@@ -11,18 +12,33 @@ import CategoryDetails from "./pages/CategoryDetails";
 import SubcategoryDetails from "./pages/SubcategoryDetails";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const closeSidebar = () => setSidebarOpen(false);
+
   return (
     <div className="app-layout">
-      <Sidebar />
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={closeSidebar}
+      />
+
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={closeSidebar}
+        />
+      )}
 
       <main className="main-content">
-        <Navbar />
+        <Navbar
+          onMenuClick={() => setSidebarOpen(true)}
+        />
 
         <div className="page-container">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/inflation" element={<Inflation />} />
-
             <Route path="/categories" element={<Categories />} />
 
             <Route
