@@ -11,12 +11,7 @@ export const categories = [
       "Fruits",
       "Dairy Products",
       "Meat & Poultry",
-      "Fish & Seafood",
       "Cereals & Grains",
-      "Pulses",
-      "Oils & Fats",
-      "Sugar & Sweets",
-      "Beverages",
     ],
   },
   {
@@ -32,8 +27,6 @@ export const categories = [
       "LPG",
       "CNG",
       "Electricity",
-      "Natural Gas",
-      "Other Fuels",
     ],
   },
   {
@@ -49,13 +42,11 @@ export const categories = [
       "Televisions",
       "Refrigerators",
       "Washing Machines",
-      "Audio Devices",
-      "Electronic Accessories",
     ],
   },
   {
     id: "property",
-    name: "Property",
+    name: "Property & Housing",
     value: "6.4%",
     status: "Increasing",
     description: "Explore property, housing and construction costs.",
@@ -66,7 +57,6 @@ export const categories = [
       "Land & Plots",
       "House Rentals",
       "Construction Materials",
-      "Building Services",
     ],
   },
   {
@@ -82,8 +72,6 @@ export const categories = [
       "Clothing & Footwear",
       "Personal Care",
       "Transportation",
-      "Entertainment",
-      "Household Services",
     ],
   },
 ];
