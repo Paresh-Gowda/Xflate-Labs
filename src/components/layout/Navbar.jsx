@@ -1,26 +1,29 @@
-import { Menu, Search } from "lucide-react";
+import { Menu, Activity, ChevronRight } from "lucide-react";
 
 function Navbar({ onMenuClick }) {
   return (
     <header className="navbar">
-      <button
-        className="mobile-menu-button"
-        onClick={onMenuClick}
-        aria-label="Open navigation"
-      >
-        <Menu size={23} />
-      </button>
+      <div className="navbar-left">
+        <button
+          className="mobile-menu-button"
+          onClick={onMenuClick}
+          aria-label="Open navigation"
+        >
+          <Menu size={21} />
+        </button>
 
-      <div className="navbar-search">
-        <Search size={17} />
-        <span>Economic Analytics Workspace</span>
+        <div className="navbar-breadcrumb">
+          <span className="breadcrumb-muted">Xflate Labs</span>
+          <ChevronRight size={15} />
+          <span className="breadcrumb-current">Workspace</span>
+        </div>
       </div>
 
       <div className="navbar-right">
-        <span className="navbar-indicator">
-          <span />
-          Xflate Labs
-        </span>
+        <div className="navbar-workspace-badge">
+          <Activity size={16} />
+          <span>Economic Analytics</span>
+        </div>
       </div>
     </header>
   );
