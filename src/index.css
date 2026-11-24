@@ -2250,3 +2250,183 @@ a:focus-visible {
     flex-direction: column;
   }
 }
+
+/* =========================================
+   XFLATE LABS - GLOBAL PAGE MOTION
+========================================= */
+
+.route-motion {
+  width: 100%;
+  min-width: 0;
+}
+
+.route-motion .page > * {
+  animation: xflatePageEnter 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Subtle stagger between page sections */
+
+.route-motion .page > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.route-motion .page > *:nth-child(2) {
+  animation-delay: 65ms;
+}
+
+.route-motion .page > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.route-motion .page > *:nth-child(4) {
+  animation-delay: 175ms;
+}
+
+.route-motion .page > *:nth-child(5) {
+  animation-delay: 230ms;
+}
+
+.route-motion .page > *:nth-child(n + 6) {
+  animation-delay: 280ms;
+}
+
+/* Entrance animation */
+
+@keyframes xflatePageEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .route-motion .page > * {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   XFLATE LABS - THREE.JS HERO VISUAL
+========================================= */
+
+.dashboard-hero-visual {
+  position: relative;
+  width: 300px;
+  height: 270px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+.three-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.three-hero-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard-hero-visual > span {
+  z-index: 2;
+  bottom: 0;
+  pointer-events: none;
+  text-shadow: 0 2px 12px rgba(0, 20, 60, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-hero-visual {
+    width: 240px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-hero-visual {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .three-hero-canvas canvas {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   XFLATE - AMBIENT 3D WORKSPACE BACKGROUND
+========================================= */
+
+.main-content {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Keep page content above the 3D layer */
+
+.page-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Full workspace background */
+
+.three-background {
+  position: fixed;
+  top: 76px;
+  left: 255px;
+  right: 0;
+  bottom: 0;
+
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 75% 20%,
+      rgba(87, 153, 255, 0.055),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 20% 75%,
+      rgba(155, 133, 255, 0.045),
+      transparent 40%
+    );
+}
+
+.three-background canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile workspace */
+
+@media (max-width: 768px) {
+  .three-background {
+    left: 0;
+    top: 65px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .three-background {
+    display: none;
+  }
+}

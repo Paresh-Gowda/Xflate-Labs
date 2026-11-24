@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
+import ThreeBackground from "./components/visuals/ThreeBackground";
 import Sidebar from "./components/layout/Sidebar";
 import Navbar from "./components/layout/Navbar";
 
@@ -13,6 +14,7 @@ import SubcategoryDetails from "./pages/SubcategoryDetails";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
 
   const closeSidebar = () => setSidebarOpen(false);
 
@@ -31,33 +33,39 @@ function App() {
       )}
 
       <main className="main-content">
+        <ThreeBackground />
         <Navbar
           onMenuClick={() => setSidebarOpen(true)}
         />
 
         <div className="page-container">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/inflation" element={<Inflation />} />
-            <Route path="/categories" element={<Categories />} />
+          <div
+            className="route-motion"
+            key={location.pathname}
+          >
+            <Routes location={location}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/inflation" element={<Inflation />} />
+              <Route path="/categories" element={<Categories />} />
 
-            <Route
-              path="/categories/:categoryId"
-              element={<CategoryDetails />}
-            />
+              <Route
+                path="/categories/:categoryId"
+                element={<CategoryDetails />}
+              />
 
-            <Route
-              path="/categories/:categoryId/:subcategorySlug"
-              element={<SubcategoryDetails />}
-            />
+              <Route
+                path="/categories/:categoryId/:subcategorySlug"
+                element={<SubcategoryDetails />}
+              />
 
-            <Route path="/about" element={<About />} />
+              <Route path="/about" element={<About />} />
 
-            <Route
-              path="*"
-              element={<Navigate to="/" replace />}
-            />
-          </Routes>
+              <Route
+                path="*"
+                element={<Navigate to="/" replace />}
+              />
+            </Routes>
+          </div>
         </div>
       </main>
     </div>

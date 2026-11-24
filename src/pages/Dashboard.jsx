@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import ThreeHero from "../components/visuals/ThreeHero";
 
 function Dashboard() {
   const sections = [
@@ -43,7 +44,6 @@ function Dashboard() {
 
   return (
     <div className="page dashboard-page">
-
       {/* PAGE HEADER */}
 
       <div className="page-header dashboard-heading">
@@ -51,8 +51,8 @@ function Dashboard() {
           <span className="eyebrow">ECONOMIC INTELLIGENCE</span>
           <h1>Dashboard Overview</h1>
           <p>
-            Your starting point for understanding economic
-            trends and everyday price movements.
+            Your starting point for understanding economic trends and everyday
+            price movements.
           </p>
         </div>
       </div>
@@ -61,9 +61,7 @@ function Dashboard() {
 
       <section className="dashboard-hero">
         <div className="dashboard-hero-content">
-          <span className="dashboard-hero-label">
-            WELCOME TO XFLATE LABS
-          </span>
+          <span className="dashboard-hero-label">WELCOME TO XFLATE LABS</span>
 
           <h2>
             Making sense of
@@ -72,8 +70,8 @@ function Dashboard() {
           </h2>
 
           <p>
-            Understand inflation, explore economic indicators
-            and discover how changing prices affect everyday life.
+            Understand inflation, explore economic indicators and discover how
+            changing prices affect everyday life.
           </p>
 
           <Link to="/inflation" className="dashboard-hero-button">
@@ -83,13 +81,7 @@ function Dashboard() {
         </div>
 
         <div className="dashboard-hero-visual">
-          <div className="hero-circle hero-circle-one" />
-          <div className="hero-circle hero-circle-two" />
-
-          <div className="hero-visual-icon">
-            <Activity size={65} strokeWidth={1.2} />
-          </div>
-
+          <ThreeHero />
           <span>ECONOMIC INSIGHTS</span>
         </div>
       </section>
@@ -101,10 +93,9 @@ function Dashboard() {
           <span className="eyebrow">EXPLORE THE PLATFORM</span>
           <h2>Everything you need to understand price movements.</h2>
           <p>
-            Xflate Labs brings economic information into one
-            accessible workspace. Explore dedicated analytical
-            sections to understand inflation and category-wise
-            price changes.
+            Xflate Labs brings economic information into one accessible
+            workspace. Explore dedicated analytical sections to understand
+            inflation and category-wise price changes.
           </p>
         </div>
 
@@ -116,13 +107,10 @@ function Dashboard() {
       {/* MAIN NAVIGATION CARDS */}
 
       <section className="dashboard-sections">
-
         <div className="section-heading">
           <div>
             <h2>Explore Xflate Labs</h2>
-            <p>
-              Choose an area to explore in detail.
-            </p>
+            <p>Choose an area to explore in detail.</p>
           </div>
         </div>
 
@@ -153,10 +141,7 @@ function Dashboard() {
                   <ArrowRight size={17} />
                 </div>
 
-                <ArrowUpRight
-                  className="dashboard-card-arrow"
-                  size={20}
-                />
+                <ArrowUpRight className="dashboard-card-arrow" size={20} />
               </Link>
             );
           })}
@@ -169,14 +154,11 @@ function Dashboard() {
         <div className="section-heading">
           <div>
             <h2>What Xflate Labs offers</h2>
-            <p>
-              A structured approach to exploring economic information.
-            </p>
+            <p>A structured approach to exploring economic information.</p>
           </div>
         </div>
 
         <div className="dashboard-highlights-grid">
-
           <div className="dashboard-highlight">
             <div className="highlight-icon">
               <BarChart3 size={21} />
@@ -185,8 +167,8 @@ function Dashboard() {
             <div>
               <h3>Visual Analytics</h3>
               <p>
-                Understand economic patterns through interactive
-                charts and visual representations.
+                Understand economic patterns through interactive charts and
+                visual representations.
               </p>
             </div>
           </div>
@@ -199,8 +181,8 @@ function Dashboard() {
             <div>
               <h3>Organized Information</h3>
               <p>
-                Explore economic data through structured
-                analytical sections and categories.
+                Explore economic data through structured analytical sections and
+                categories.
               </p>
             </div>
           </div>
@@ -213,12 +195,11 @@ function Dashboard() {
             <div>
               <h3>Accessible Insights</h3>
               <p>
-                Make economic information easier to navigate,
-                understand and interpret.
+                Make economic information easier to navigate, understand and
+                interpret.
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -232,7 +213,6 @@ function Dashboard() {
 
         <span>Understanding prices. Exploring the economy.</span>
       </footer>
-
     </div>
   );
 }
